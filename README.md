@@ -81,7 +81,19 @@ text
 4. Implement the safeguards in your AI systems
 
 ---
+## License
 
+**LFAS Protocol v4 License**  
+Copyright (c) 2025 Mehmet Bagbozan (LFASProtocol). All Rights Reserved.
+
+This work is licensed under the LFAS Protocol v4 License:
+- **Non-Commercial Use:** Free for personal, academic, research, and non-profit use
+- **Commercial Use:** Requires separate commercial license
+- **Attribution Required:** Must credit creator and link to repository
+- **Share-Alike:** Modifications must use same license
+
+**Full license text:** [LICENSE](LICENSE)  
+**Commercial inquiries:** lfasprotocol@outlook.com
 ## Contact
 
 **Email:** lfasprotocol@outlook.com  
