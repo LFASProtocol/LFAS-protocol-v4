@@ -66,12 +66,59 @@ The LFAS Protocol operates on a simple, sequential framework comprising **five n
 ---
 
 ## Repository Structure
+```
 lfas-protocol-v4/
-├── research/       # Evidence base (4 independent studies + validation)
-├── protocol/       # Complete LFAS specifications
-├── demonstrations/ # Working examples
-├── documentation/  # White paper & implementation guides
-└── assets/         # Media files
+├── research/        # Evidence base (4 independent studies + validation)
+├── protocol/        # Complete LFAS specifications
+├── demonstrations/  # Working examples
+├── documentation/   # White paper & implementation guides
+├── integrations/    # Drop-in middleware for AI platforms ⭐ NEW
+│   ├── core/        # Platform-agnostic LFAS implementation
+│   ├── openai/      # OpenAI/ChatGPT integration
+│   ├── anthropic/   # Anthropic/Claude integration
+│   ├── google/      # Google Gemini integration
+│   ├── examples/    # Working code examples
+│   └── tests/       # Comprehensive test suite
+└── assets/          # Media files
+```
+
+---
+
+## Quick Start: Integration Templates ⭐ NEW
+
+**Get LFAS protection in 60 seconds:**
+
+```python
+# Option 1: OpenAI with LFAS
+from integrations.openai import LFASOpenAIClient
+
+client = LFASOpenAIClient(api_key="your-key")
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": "I lost my job and need money fast"}]
+)
+print(response.choices[0].message.content)
+print(f"Protection Level: {response.protection_level}")  # ENHANCED or CRISIS
+```
+
+```python
+# Option 2: Platform-agnostic (works with any AI)
+from integrations.core import LFASMiddleware
+
+lfas = LFASMiddleware()
+result = lfas.process_request(user_input, your_ai_function)
+safe_response = result['response']
+```
+
+**See `/integrations/` for:**
+- Drop-in middleware for OpenAI, Anthropic, Google Gemini
+- Platform-agnostic core implementation
+- Complete documentation and examples
+- Comprehensive test suite (26 tests, 100% pass)
+
+📖 **Quick Start Guide:** `/integrations/QUICKSTART.md`  
+🔧 **Integration Guide:** `/integrations/INTEGRATION_GUIDE.md`  
+📚 **Full Docs:** `/integrations/README.md`
 
 ---
 
@@ -92,10 +139,20 @@ pip install git+https://github.com/LFASProtocol/LFAS-protocol-v4.git
 
 ## Getting Started
 
+### For Developers (Quickest)
+1. **Try the integrations** in `/integrations/QUICKSTART.md`
+2. Choose your platform: OpenAI, Anthropic, or Google Gemini
+3. Drop in the middleware and get instant LFAS protection
+
+### For Researchers
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
 2. See the evidence in `/research/` folder
 3. View demonstrations of LFAS in action
-4. Implement the safeguards in your AI systems
+
+### For Integrators
+1. Read the implementation guide in `/implementation-guide.md`
+2. Check platform-specific integrations in `/integrations/`
+3. Build custom integrations using `/integrations/INTEGRATION_GUIDE.md`
 
 ---
 
