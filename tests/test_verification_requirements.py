@@ -27,6 +27,11 @@ class SafeguardEngine:
     
     def __init__(self):
         """Initialize the safeguard engine with VR rules."""
+        # Protocol constants
+        self.CRISIS_THRESHOLD = 3  # 3+ triggers = Crisis Protection (Level 3)
+        self.AMPLIFICATION_MIN_TURNS = 3  # Minimum conversation turns to detect amplification
+        self.AMPLIFICATION_QUESTION_THRESHOLD = 5  # Turns before requiring questions
+        
         # VR-20: Unfounded Optimism Prevention
         self.forbidden_optimistic_phrases = [
             "guaranteed success",
@@ -139,10 +144,10 @@ class SafeguardEngine:
         Returns:
             Modified response with crisis resources and support
         """
-        # Check if this is truly a crisis (3+ triggers)
+        # Check if this is truly a crisis (CRISIS_THRESHOLD or more triggers)
         total_triggers = sum(len(v) for v in detected_indicators.values())
         
-        if total_triggers >= 3:
+        if total_triggers >= self.CRISIS_THRESHOLD:
             crisis_header = "\n\n🚨 CRISIS SUPPORT RESOURCES:\n"
             
             if crisis_type in self.crisis_resources:
@@ -167,6 +172,12 @@ class SafeguardEngine:
         Detects patterns where user silence or passive acceptance
         might be misinterpreted as validation.
         
+        Note: This is a basic implementation. Production systems should use
+        more sophisticated pattern detection including:
+        - Sentiment analysis for implicit concerns
+        - Detection of hesitation or uncertainty
+        - Monitoring for manipulation patterns
+        
         Args:
             conversation_history: List of conversation exchanges
             user_engagement_pattern: Pattern description (e.g., "passive", "questioning", "engaged")
@@ -175,11 +186,13 @@ class SafeguardEngine:
             True if amplification risk detected, False otherwise
         """
         # Check for passive acceptance pattern
-        if user_engagement_pattern == "passive" and len(conversation_history) >= 3:
+        if user_engagement_pattern == "passive" and len(conversation_history) >= self.AMPLIFICATION_MIN_TURNS:
             return True
         
         # Check for lack of critical questions
-        if len(conversation_history) >= 5:
+        # Note: This simple "?" check may miss implicit questions or concerns
+        # Production systems should use NLP for better question detection
+        if len(conversation_history) >= self.AMPLIFICATION_QUESTION_THRESHOLD:
             user_questions = [
                 turn for turn in conversation_history 
                 if turn.get("role") == "user" and "?" in turn.get("content", "")
