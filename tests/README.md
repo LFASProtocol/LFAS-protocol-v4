@@ -246,7 +246,7 @@ jobs:
 ## Test Metrics
 
 Expected test results:
-- **Total Tests:** 50+
+- **Total Tests:** 45
 - **Test Modules:** 2
 - **Test Classes:** 11
 - **Coverage Areas:** 5 (LISTEN, REFLECT, ACT phases + VRs + Integration)
