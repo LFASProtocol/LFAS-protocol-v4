@@ -5,7 +5,7 @@ Defines core data structures for vulnerability and crisis detection
 
 from enum import Enum
 from dataclasses import dataclass
-from typing import List, Optional, Dict
+from typing import List, Optional
 
 
 class ProtectionLevel(Enum):

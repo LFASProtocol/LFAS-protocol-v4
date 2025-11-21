@@ -3,10 +3,10 @@ LFAS Protocol v4 - Crisis Detector
 Assesses crisis situations and provides appropriate resources and responses
 """
 
-from typing import List, Dict, Optional
+from typing import List, Optional
 from .models import (
     DetectionResult, CrisisResult, CrisisType, 
-    ProtectionLevel, CrisisResource
+    CrisisResource
 )
 from .specification_loader import SpecificationLoader
 

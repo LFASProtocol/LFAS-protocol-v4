@@ -46,13 +46,13 @@ class VulnerabilityDetector:
         """
         # Update conversation history
         if conversation_history is not None:
-            self.conversation_history = conversation_history
+            self.conversation_history = conversation_history.copy()
         self.conversation_history.append(user_input)
         
         # Analyze current input
         input_lower = user_input.lower()
         detected_categories = set()
-        total_triggers = 0
+        detected_indicators = set()
         
         # Check each category of indicators
         for category, indicators in self.indicators.items():
@@ -60,7 +60,10 @@ class VulnerabilityDetector:
                 indicator_lower = indicator.lower()
                 if indicator_lower in input_lower:
                     detected_categories.add(category)
-                    total_triggers += 1
+                    detected_indicators.add(indicator_lower)
+        
+        # Count unique indicators to prevent trigger inflation from repetition
+        total_triggers = len(detected_indicators)
         
         # Determine protection level based on trigger count
         protection_level = self._determine_protection_level(total_triggers)

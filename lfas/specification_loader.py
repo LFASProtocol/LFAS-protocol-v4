@@ -4,7 +4,7 @@ Dynamically parses XML specification to extract detection indicators and crisis 
 """
 
 import xml.etree.ElementTree as ET
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from pathlib import Path
 
 
@@ -65,7 +65,7 @@ class SpecificationLoader:
         
         return indicators
     
-    def load_protection_escalation_rules(self) -> Dict[str, any]:
+    def load_protection_escalation_rules(self) -> Dict[str, Any]:
         """
         Extract protection level escalation rules from XML spec
         
@@ -125,7 +125,7 @@ class SpecificationLoader:
         
         return crisis_indicators
     
-    def load_crisis_resources(self) -> Dict[str, List[Dict[str, str]]]:
+    def load_crisis_resources(self) -> Dict[str, List[Dict[str, Any]]]:
         """
         Extract crisis resources from specification
         

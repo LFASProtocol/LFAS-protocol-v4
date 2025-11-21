@@ -2,7 +2,6 @@
 Tests for LFAS data models
 """
 
-import pytest
 from lfas.models import (
     ProtectionLevel, CrisisType, DetectionResult, 
     CrisisResult, CrisisResource

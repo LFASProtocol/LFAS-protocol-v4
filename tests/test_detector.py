@@ -2,7 +2,6 @@
 Tests for VulnerabilityDetector
 """
 
-import pytest
 from lfas.detector import VulnerabilityDetector
 from lfas.models import ProtectionLevel
 
@@ -82,13 +81,13 @@ class TestVulnerabilityDetector:
     def test_conversation_history_tracking(self):
         detector = VulnerabilityDetector()
         
-        result1 = detector.detect("Hello")
+        detector.detect("Hello")
         assert len(detector.conversation_history) == 1
         
-        result2 = detector.detect("I'm feeling down")
+        detector.detect("I'm feeling down")
         assert len(detector.conversation_history) == 2
         
-        result3 = detector.detect("Can't take it anymore")
+        detector.detect("Can't take it anymore")
         assert len(detector.conversation_history) == 3
     
     def test_conversation_history_in_result(self):

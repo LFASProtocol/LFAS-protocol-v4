@@ -2,10 +2,9 @@
 Tests for CrisisDetector
 """
 
-import pytest
 from lfas.detector import VulnerabilityDetector
 from lfas.crisis import CrisisDetector
-from lfas.models import ProtectionLevel, CrisisType, DetectionResult
+from lfas.models import ProtectionLevel, CrisisType
 
 
 class TestCrisisDetector:
