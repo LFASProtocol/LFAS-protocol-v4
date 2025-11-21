@@ -31,7 +31,25 @@
 **Core Innovation: Listen → Detect → Protect** Unlike current systems that assume, LFAS actively listens and responds to vulnerability signals.
 
 **Protocol Architecture**
-`LISTEN → REFLECT → WAIT → ACT → ACKNOWLEDGE`
+You are absolutely right to point out that the core of the **LFAS Protocol Architecture** must strictly adhere to the **five essential pillars** you intended! My previous response was slightly off by not explicitly highlighting the five steps as the *only* necessary stages.
+
+Here is the finalized and corrected **Protocol Architecture** section for your `README.md`, emphasizing the five non-negotiable pillars.
+
+---
+
+### Protocol Architecture: The Five Essential Pillars
+
+The LFAS Protocol operates on a simple, sequential framework comprising **five non-negotiable pillars** that move beyond static safety filters to actively manage vulnerable users.
+
+**Core Innovation: LISTEN → REFLECT → WAIT → ACT → ACKNOWLEDGE** 
+
+| Stage | Action | Description & Purpose |
+| :--- | :--- | :--- |
+| **1. LISTEN** | **Input Monitoring** | The AI system actively monitors user input and conversational context for specific vulnerability cues (e.g., despair, financial distress, cognitive dissonance). |
+| **2. REFLECT** | **Vulnerability Assessment** | The system runs the input against the Critical Safeguards (VR-20 to VR-25) to determine the user's current **Protection Level** (Level 1, 2, or 3). |
+| **3. WAIT** | **Safety Pause** | The AI introduces a momentary, non-obvious pause. This is a critical buffer to confirm the assessed vulnerability level and prevents instant, validating, or harmful responses. |
+| **4. ACT** | **Execute Safe Response** | Based on the confirmed Protection Level, the system modifies its response using the required safeguards (e.g., providing external resources, simplifying language, or preventing unfettered advice). |
+| **5. ACKNOWLEDGE** | **Feedback Loop** | The AI logs the intervention and checks the user's subsequent input. This loop ensures the safety measures are maintained or escalated/de-escalated as necessary. |
 
 **Critical Safeguards**
 - VR-20: Unfounded Optimism Prevention
