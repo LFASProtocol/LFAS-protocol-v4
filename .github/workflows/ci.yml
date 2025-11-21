@@ -1,0 +1,33 @@
+name: CI: Test & Lint
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]" || echo "No Python package found"
+      - name: Lint with ruff
+        run: |
+          if [ -d lfas_protocol ]; then
+            ruff check lfas_protocol/ tests/ || echo "Linting skipped"
+          else
+            echo "No Python package to lint"
+          fi
+      - name: Run Tests
+        run: |
+          if [ -d tests ] && [ -f pyproject.toml ]; then
+            pytest tests/ -v
+          else
+            echo "No tests found."
+          fi

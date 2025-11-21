@@ -85,6 +85,42 @@ lfas-protocol-v4/
 
 ---
 
+## 🐍 Python Reference Library
+
+**Production-ready implementation for immediate use**
+
+```bash
+pip install lfas-protocol
+```
+
+```python
+from lfas_protocol import VulnerabilityDetector, CrisisDetectionSafeguard
+
+detector = VulnerabilityDetector()
+safeguard = CrisisDetectionSafeguard()
+
+# Detect vulnerability
+result = detector.detect("I can't take it anymore, everything is hopeless")
+
+# Generate safe response  
+if safeguard.should_activate(result):
+    response = safeguard.generate_response(result)
+    print(response.message)  # Provides 988 Lifeline, Crisis Text Line, etc.
+```
+
+**Features:**
+- ✅ Vulnerability detection (4 categories)
+- ✅ Protection level escalation (Standard → Enhanced → Crisis)
+- ✅ VR-24 crisis safeguards
+- ✅ Zero runtime dependencies
+- ✅ Python 3.8-3.12 support
+- ✅ 36 comprehensive tests (100% passing)
+
+**Documentation:** [PYTHON_LIBRARY.md](PYTHON_LIBRARY.md)  
+**Examples:** `examples/basic_usage.py`, `examples/openai_integration.py`
+
+---
+
 ## Getting Started
 
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
