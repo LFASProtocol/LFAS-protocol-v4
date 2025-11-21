@@ -1,0 +1,97 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main, copilot/** ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Run tests
+      run: |
+        pytest tests/ -v --tb=short
+    
+    - name: Verify zero runtime dependencies
+      run: |
+        # Check that package has no runtime dependencies
+        python -c "import lfas_protocol; print('✅ Package imports successfully')"
+        if grep -q "install_requires" pyproject.toml; then
+          echo "❌ Runtime dependencies found"
+          exit 1
+        fi
+        echo "✅ Zero runtime dependencies confirmed"
+  
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Format check with black
+      run: |
+        black --check lfas_protocol/ tests/
+    
+    - name: Lint with ruff
+      run: |
+        ruff check lfas_protocol/ tests/
+    
+    - name: Type check with mypy
+      run: |
+        mypy lfas_protocol/ --ignore-missing-imports
+  
+  package-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    
+    - name: Install build tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install build
+    
+    - name: Build package
+      run: |
+        python -m build
+    
+    - name: Verify package contents
+      run: |
+        ls -lh dist/
+        echo "✅ Package built successfully"
