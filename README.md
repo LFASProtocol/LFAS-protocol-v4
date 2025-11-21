@@ -66,12 +66,15 @@ The LFAS Protocol operates on a simple, sequential framework comprising **five n
 ---
 
 ## Repository Structure
+```
 lfas-protocol-v4/
-├── research/       # Evidence base (4 independent studies + validation)
-├── protocol/       # Complete LFAS specifications
-├── demonstrations/ # Working examples
-├── documentation/  # White paper & implementation guides
-└── assets/         # Media files
+├── integrations/    # 🆕 Ready-to-use integration templates (Python & JS)
+├── research/        # Evidence base (4 independent studies + validation)
+├── protocol/        # Complete LFAS specifications
+├── demonstrations/  # Working examples
+├── documentation/   # White paper & implementation guides
+└── assets/          # Media files
+```
 
 ---
 
@@ -92,10 +95,39 @@ pip install git+https://github.com/LFASProtocol/LFAS-protocol-v4.git
 
 ## Getting Started
 
+### Option A: Use Ready-Made Integration Templates ⚡ (Recommended)
+
+**Add LFAS protection to your AI in 3 lines of code!**
+
+```python
+# Python + OpenAI
+from integrations.python.openai import create_lfas_client
+lfas = create_lfas_client(api_key="your-key")
+response = lfas.chat_completion(messages=[...])
+```
+
+```javascript
+// JavaScript + Anthropic
+const { createLFASClient } = require('./integrations/javascript/anthropic/lfas-anthropic');
+const lfas = createLFASClient('your-key');
+const response = await lfas.createMessage([...]);
+```
+
+**See:** `/integrations/QUICKSTART.md` for 5-minute setup guide
+
+**Supported Platforms:**
+- ✅ Python 3.7+ (OpenAI & Anthropic)
+- ✅ JavaScript/Node.js (OpenAI & Anthropic)
+
+---
+
+### Option B: Build Your Own Implementation
+
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
 2. See the evidence in `/research/` folder
 3. View demonstrations of LFAS in action
-4. Implement the safeguards in your AI systems
+4. Follow the implementation guide at `/implementation-guide.md`
+5. Reference the working code in `/integrations/` for examples
 
 ---
 

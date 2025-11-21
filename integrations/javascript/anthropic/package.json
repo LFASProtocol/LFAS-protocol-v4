@@ -1,0 +1,22 @@
+{
+  "name": "lfas-anthropic-integration",
+  "version": "4.0.0",
+  "description": "LFAS Protocol v4 integration for Anthropic Claude API",
+  "main": "lfas-anthropic.js",
+  "scripts": {
+    "example": "node example-usage.js"
+  },
+  "keywords": [
+    "lfas",
+    "anthropic",
+    "claude",
+    "safety",
+    "ai-safety",
+    "vulnerability-detection"
+  ],
+  "author": "LFAS Protocol",
+  "license": "SEE LICENSE IN ../../../LICENSE",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.18.0"
+  }
+}
