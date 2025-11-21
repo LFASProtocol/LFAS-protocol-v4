@@ -7,7 +7,7 @@ Demonstrates the core functionality:
 3. Activating crisis safeguards
 """
 
-from lfas_protocol import VulnerabilityDetector, CrisisDetectionSafeguard, ProtectionLevel
+from lfas_protocol import VulnerabilityDetector, CrisisDetectionSafeguard
 
 
 def example_basic_detection():
