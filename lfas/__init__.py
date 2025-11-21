@@ -2,9 +2,9 @@
 LFAS Protocol v4 - Logical Framework for AI Safety
 """
 
-from .detector import VulnerabilityDetector
 from .crisis import CrisisDetector
-from .models import DetectionResult, ProtectionLevel, CrisisType, CrisisResult, CrisisResource
+from .detector import VulnerabilityDetector
+from .models import CrisisResource, CrisisResult, CrisisType, DetectionResult, ProtectionLevel
 from .specification_loader import SpecificationLoader
 
 __version__ = "4.0.0"
@@ -13,11 +13,11 @@ __email__ = "lfasprotocol@outlook.com"
 
 __all__ = [
     "VulnerabilityDetector",
-    "CrisisDetector", 
+    "CrisisDetector",
     "DetectionResult",
     "ProtectionLevel",
     "CrisisType",
     "CrisisResult",
     "CrisisResource",
-    "SpecificationLoader"
+    "SpecificationLoader",
 ]

@@ -1,0 +1,17 @@
+# LFAS Protocol v4 - Development Dependencies
+-r requirements.txt
+
+# Testing
+pytest>=9.0.0
+pytest-cov>=4.1.0
+
+# Code Quality
+black>=25.0.0
+flake8>=7.0.0
+mypy>=1.8.0
+pylint>=4.0.0
+isort>=5.13.0
+
+# Documentation
+sphinx>=7.0.0
+sphinx-rtd-theme>=2.0.0
