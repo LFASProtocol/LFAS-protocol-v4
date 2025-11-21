@@ -231,12 +231,15 @@ class VulnerabilityDetector:
         Args:
             spec_path: Path to LFAS XML specification file.
                       If None, uses built-in indicators.
+        
+        Note:
+            In this minimal implementation, spec_path is reserved for future use.
+            Currently uses built-in indicators extracted from the XML spec.
+            See parser.py for full XML parsing implementation.
         """
-        if spec_path:
-            # TODO: Parse from XML spec
-            self.indicators = self._load_from_spec(spec_path)
-        else:
-            self.indicators = self._get_default_indicators()
+        # Future: Parse from XML spec using SpecificationParser
+        # For minimal implementation, use built-in indicators
+        self.indicators = self._get_default_indicators()
     
     def _get_default_indicators(self) -> Dict[str, List[str]]:
         """
@@ -341,13 +344,16 @@ class VulnerabilityDetector:
             return ProtectionLevel.ENHANCED
         else:
             return ProtectionLevel.CRISIS
-    
-    def _load_from_spec(self, spec_path: str) -> Dict[str, List[str]]:
-        """Load indicators from XML specification file."""
-        # TODO: Implement XML parsing
-        # For now, use default indicators
-        return self._get_default_indicators()
 ```
+
+**Note on Minimal Implementation:**
+This is a **minimal viable implementation** to prove the concept. The `spec_path` parameter is included for future extensibility but not yet implemented. For a production implementation, you would:
+
+1. Implement `parser.py` to parse the XML specification
+2. Use `SpecificationParser` in the `__init__` method
+3. Load indicators dynamically from the spec file
+
+This minimal version uses hardcoded indicators extracted from `protocol/lfas-v4-specification.xml`, which is sufficient for initial testing and demonstration.
 
 ---
 
@@ -545,7 +551,9 @@ if __name__ == "__main__":
 
 ## Step 6: Update CI Workflow
 
-Update `.github/workflows/ci.yml` to include Python testing:
+Update `.github/workflows/ci.yml` to include Python testing.
+
+**Important:** The Python testing job uses conditional execution (`if: hashFiles('pyproject.toml') != ''`) so it won't fail if the Python code hasn't been added yet. This allows you to merge the workflow update before implementing the Python code.
 
 ```yaml
 name: CI - Test & Lint
@@ -588,6 +596,8 @@ jobs:
   test-python-implementation:
     name: Test Python Implementation
     runs-on: ubuntu-latest
+    # Only run if Python code exists
+    if: hashFiles('pyproject.toml') != ''
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
@@ -601,26 +611,43 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       
+      - name: Check if Python implementation exists
+        id: check-python
+        run: |
+          if [ -f pyproject.toml ] && [ -d src ]; then
+            echo "python-exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "python-exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Python implementation not found - skipping Python tests"
+          fi
+      
       - name: Install dependencies
+        if: steps.check-python.outputs.python-exists == 'true'
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-dev.txt
+          if [ -f requirements-dev.txt ]; then
+            pip install -r requirements-dev.txt
+          fi
           pip install -e .
       
       - name: Lint with ruff
+        if: steps.check-python.outputs.python-exists == 'true'
         run: |
           ruff check src/ tests/
       
       - name: Format check with black
+        if: steps.check-python.outputs.python-exists == 'true'
         run: |
           black --check src/ tests/
       
       - name: Type check with mypy
+        if: steps.check-python.outputs.python-exists == 'true'
         run: |
           mypy src/
         continue-on-error: true
       
       - name: Run tests with pytest
+        if: steps.check-python.outputs.python-exists == 'true'
         run: |
           pytest --cov=src/lfas_protocol --cov-report=term-missing --cov-report=xml
       
