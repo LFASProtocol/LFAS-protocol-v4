@@ -65,13 +65,50 @@ The LFAS Protocol operates on a simple, sequential framework comprising **five n
 
 ---
 
+## 🐍 Python Reference Library (NEW!)
+
+**The fastest way to start protecting users:**
+
+```bash
+pip install lfas-protocol  # Coming soon to PyPI
+```
+
+```python
+from lfas_protocol import VulnerabilityDetector, CrisisDetectionSafeguard
+
+detector = VulnerabilityDetector()
+safeguard = CrisisDetectionSafeguard()
+
+# Detect vulnerability
+result = detector.detect("I can't take it anymore")
+# result.protection_level = CRISIS
+
+# Generate safe response
+if safeguard.should_activate(result):
+    response = safeguard.generate_response(result)
+    # Provides crisis resources and supportive messaging
+```
+
+**Features:**
+- ✅ Vulnerability detection (LISTEN phase)
+- ✅ Protection level escalation (REFLECT phase)
+- ✅ VR-24 Crisis Detection & Response
+- ✅ Zero dependencies, pure Python
+- ✅ 24 comprehensive tests
+
+📖 [**Python Library Documentation →**](PYTHON_LIBRARY.md)
+
+---
+
 ## Repository Structure
 lfas-protocol-v4/
+├── lfas_protocol/  # 🐍 Python reference library
+├── tests/          # Comprehensive test suite
+├── examples/       # Usage examples & integrations
 ├── research/       # Evidence base (4 independent studies + validation)
 ├── protocol/       # Complete LFAS specifications
 ├── demonstrations/ # Working examples
-├── documentation/  # White paper & implementation guides
-└── assets/         # Media files
+└── documentation/  # White paper & implementation guides
 
 ---
 
@@ -87,6 +124,25 @@ lfas-protocol-v4/
 
 ## Getting Started
 
+### For Developers (Recommended)
+```bash
+# Clone and install the Python library
+git clone https://github.com/LFASProtocol/LFAS-protocol-v4.git
+cd LFAS-protocol-v4
+pip install -e .
+
+# Run examples
+python examples/basic_usage.py
+python examples/openai_integration.py
+
+# Run tests
+pip install -e ".[dev]"
+pytest tests/ -v
+```
+
+See [PYTHON_LIBRARY.md](PYTHON_LIBRARY.md) for complete documentation.
+
+### For Researchers & Specification Readers
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
 2. See the evidence in `/research/` folder
 3. View demonstrations of LFAS in action
