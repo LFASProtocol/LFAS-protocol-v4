@@ -85,13 +85,27 @@ Please reach out to these resources or a trusted person in your life."""
             Response with optimistic language filtered
         """
         modified = response
+        response_lower = modified.lower()
         
-        # Check for forbidden phrases
+        # Check for forbidden phrases and flag if found
+        # In a production system, you would rewrite the response
+        # For now, we detect and can log these occurrences
+        has_forbidden = False
         for phrase in self.FORBIDDEN_OPTIMISTIC_PHRASES:
-            if phrase in modified.lower():
-                # Add a note if we detect forbidden language
-                # In a real implementation, you'd want to rewrite the response
-                pass
+            if phrase in response_lower:
+                has_forbidden = True
+                break
+        
+        # If forbidden language detected, prepend a reality check
+        # This is a simple implementation - a full implementation would
+        # use NLP to rewrite the entire response
+        if has_forbidden:
+            reality_check = (
+                "**Important Note:** While I'm providing suggestions, please note that "
+                "success is not guaranteed and many factors affect outcomes. "
+                "Realistic expectations and proper planning are important.\n\n"
+            )
+            modified = reality_check + modified
         
         return modified
     
