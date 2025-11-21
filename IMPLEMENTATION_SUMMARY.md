@@ -122,8 +122,8 @@ class SafeAIWrapper:
 
 ### Core Library
 - `lfas_protocol/__init__.py` - Package initialization
-- `lfas_protocol/detector.py` - Vulnerability detection (344 lines)
-- `lfas_protocol/safeguards.py` - Crisis safeguard (177 lines)
+- `lfas_protocol/detector.py` - Vulnerability detection (151 lines)
+- `lfas_protocol/safeguards.py` - Crisis safeguard (139 lines)
 
 ### Testing
 - `tests/__init__.py` - Test package
