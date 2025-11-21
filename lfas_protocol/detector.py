@@ -14,8 +14,8 @@ from dataclasses import dataclass
 
 class ProtectionLevel(IntEnum):
     """Protection levels based on detected vulnerability indicators."""
-    STANDARD = 1      # 0-1 triggers detected
-    ENHANCED = 2      # 2 triggers detected
+    STANDARD = 1      # 0 triggers detected
+    ENHANCED = 2      # 1-2 triggers detected
     CRISIS = 3        # 3+ triggers detected
 
 

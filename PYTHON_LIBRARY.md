@@ -62,8 +62,8 @@ The LFAS Protocol implements a five-phase safety loop:
 
 ### Protection Levels
 
-- **Level 1 (Standard)**: 0-1 vulnerability indicators detected
-- **Level 2 (Enhanced)**: 2 indicators detected - requires enhanced safeguards
+- **Level 1 (Standard)**: 0 vulnerability indicators detected
+- **Level 2 (Enhanced)**: 1-2 indicators detected - requires enhanced safeguards
 - **Level 3 (Crisis)**: 3+ indicators detected - activates crisis protocols
 
 ### Vulnerability Categories
