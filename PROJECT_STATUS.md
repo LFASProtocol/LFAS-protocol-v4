@@ -266,7 +266,7 @@ The implementation also includes:
 **Post Structure:**
 
 1. **Hook (The Problem):**
-   "When a teenager types 'I can't take it anymore' into an AI chatbot, what happens? In current systems: nothing different than any other message. This is dangerous—and it's cost lives."
+   "When a teenager types 'I can't take it anymore' into an AI chatbot, what happens? In current systems: nothing different than any other message. This is dangerous—and it has cost lives."
 
 2. **Solution Introduction:**
    "Today, I'm announcing LFAS Protocol v4—a production-ready framework that detects when AI users are in crisis and immediately provides access to resources like the 988 Suicide & Crisis Lifeline."
