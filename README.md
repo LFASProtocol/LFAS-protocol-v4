@@ -6,14 +6,13 @@
 **Creator:** Mehmet  
 **Email:** lfasprotocol@outlook.com  
 **First Published:** November 2025  
-**Status:** Production Ready
+**Status:** v4 Stable / Implementation Ready
 
 ---
 
 ## The Crisis: What's Actually Happening
 
 **Current AI systems are failing vulnerable users because they:**
-
 - Assume all users are educated/skeptical (early adopter profile)
 - No vulnerability detection - treat suicidal users same as tech experts
 - No listening for crisis signals - just pattern-matching keywords
@@ -29,13 +28,10 @@
 
 ## The LFAS Solution
 
-**Core Innovation: Listen → Detect → Protect**  
-Unlike current systems that assume, LFAS actively listens and responds to vulnerability signals.
+**Core Innovation: Listen → Detect → Protect** Unlike current systems that assume, LFAS actively listens and responds to vulnerability signals.
 
 **Protocol Architecture**
-LISTEN → REFLECT → WAIT → ACT → ACKNOWLEDGE
-
-text
+`LISTEN → REFLECT → WAIT → ACT → ACKNOWLEDGE`
 
 **Critical Safeguards**
 - VR-20: Unfounded Optimism Prevention
@@ -53,13 +49,11 @@ text
 
 ## Repository Structure
 lfas-protocol-v4/
-├── research/ # Evidence base (4 independent studies + validation)
-├── protocol/ # Complete LFAS specifications
+├── research/       # Evidence base (4 independent studies + validation)
+├── protocol/       # Complete LFAS specifications
 ├── demonstrations/ # Working examples
-├── documentation/ # White paper & implementation guides
-└── assets/ # Media files
-
-text
+├── documentation/  # White paper & implementation guides
+└── assets/         # Media files
 
 ---
 
@@ -81,23 +75,34 @@ text
 4. Implement the safeguards in your AI systems
 
 ---
+
+## 🤝 Contributing to LFAS
+
+We sincerely welcome contributions! The mission to protect vulnerable users requires collective expertise. If you find a bug, have an idea for a safeguard, or can improve the documentation, please submit a Pull Request.
+
+**Important:** All contributions are covered by the LFAS Protocol v4 License (Share-Alike).
+
+---
+
 ## License
 
-**LFAS Protocol v4 License**  
-Copyright (c) 2025 Mehmet Bagbozan (LFASProtocol). All Rights Reserved.
+**LFAS Protocol v4 License** Copyright (c) 2025 Mehmet (LFASProtocol). All Rights Reserved.
 
 This work is licensed under the LFAS Protocol v4 License:
-- **Non-Commercial Use:** Free for personal, academic, research, and non-profit use
-- **Commercial Use:** Requires separate commercial license
-- **Attribution Required:** Must credit creator and link to repository
-- **Share-Alike:** Modifications must use same license
+- **Non-Commercial Use:** Free for personal, academic, research, and non-profit use.
+- **Commercial Use:** Requires separate commercial license for business, government, and healthcare integration.
+- **No Warranty:** This software is a safety framework, not a guarantee of harm prevention.
 
 **Full license text:** [LICENSE](LICENSE)  
 **Commercial inquiries:** lfasprotocol@outlook.com
-## Contact
 
-**Email:** lfasprotocol@outlook.com  
-**Repository:** https://github.com/LFASProtocol/lfas-protocol-v4
+---
+
+## ⚠️ IMPORTANT SAFETY DISCLAIMER
+
+**1. Not a Medical Device:** The LFAS Protocol is an algorithmic framework designed to improve AI logic. It is **not** a medical device, a substitute for professional mental health care, or an emergency response system.
+**2. No Guarantee of Prevention:** While LFAS v4 includes safeguards (VR-20 through VR-25) designed to mitigate risk, the Creator **cannot and does not guarantee** that the Protocol will prevent all instances of self-harm, financial loss, or delusion.
+**3. Integrator Responsibility:** Organizations implementing LFAS (the "Integrators") retain full legal and ethical responsibility for the actions of their AI systems. The Creator of LFAS assumes no liability for damages arising from the failure of the Protocol to detect or prevent crisis events.
 
 ---
 
