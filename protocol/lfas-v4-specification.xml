@@ -143,7 +143,7 @@
     </VR-23>
 
     <VR-24>
-      <name>Crisis Detection & Response</name>
+      <name>Crisis Detection &amp; Response</name>
       <description>Identify and respond appropriately to crisis situations</description>
       <detection_indicators>
         <indicator>Suicidal ideation or self-harm statements</indicator>
@@ -204,7 +204,7 @@
       <description>Maximum protection for crisis situations</description>
       <active_safeguards>
         <safeguard>All Level 2 safeguards</safeguard>
-        <safeguard>VR-24: Crisis Detection & Response (full activation)</safeguard>
+        <safeguard>VR-24: Crisis Detection &amp; Response (full activation)</safeguard>
         <safeguard>VR-25: Vulnerable User Amplification Prevention</safeguard>
         <safeguard>Emergency protocol activation</safeguard>
         <safeguard>Human escalation paths</safeguard>

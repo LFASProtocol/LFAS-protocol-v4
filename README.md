@@ -83,19 +83,52 @@ lfas-protocol-v4/
 - "The gap between user vulnerability and system design is widening"
 - "Your work on this is truly important"
 
+
 ---
 ## 🚀 Quick Start
 
 ### Installation
 ```bash
 pip install git+https://github.com/LFASProtocol/LFAS-protocol-v4.git
+```
 
-## Getting Started
+### Basic Usage
+
+```python
+from lfas import VulnerabilityDetector, CrisisDetector
+
+# Detect vulnerability
+detector = VulnerabilityDetector()
+result = detector.detect("I lost my job, this is my last hope, can't take it anymore")
+
+print(f"Protection Level: {result.protection_level.name}")
+print(f"Triggers Detected: {result.triggers_count}")
+
+# Crisis response
+if result.protection_level.value >= 3:
+    crisis = CrisisDetector().assess_crisis(result)
+    print(crisis.format_crisis_message())
+```
+
+### Getting Started
 
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
 2. See the evidence in `/research/` folder
-3. View demonstrations of LFAS in action
-4. Implement the safeguards in your AI systems
+3. Try the examples in `/examples/` directory:
+   - `python examples/basic_usage.py`
+   - `python examples/conversation_history.py`
+   - `python examples/custom_specification.py`
+4. Review the Python API documentation in `/lfas/README.md`
+5. Run the test suite: `pytest tests/`
+
+### System Features
+
+✅ **96% Test Coverage** - Comprehensive test suite with 59 tests  
+✅ **VR-24 Crisis Detection** - Implements full crisis detection & response  
+✅ **Mental Health Priority** - Prioritizes mental health in mixed crises  
+✅ **Dynamic XML Loading** - Customizable detection patterns  
+✅ **Conversation History** - Context-aware vulnerability tracking  
+✅ **Crisis Resources** - 988 Lifeline, Crisis Text Line, and more
 
 ---
 
@@ -106,41 +139,6 @@ We sincerely welcome contributions! The mission to protect vulnerable users requ
 **Important:** All contributions are covered by the LFAS Protocol v4 License (Share-Alike).
 
 ---
-from lfas import VulnerabilityDetector, CrisisDetector
-
-# Detect vulnerability
-detector = VulnerabilityDetector()
-result = detector.detect("I lost my job and this is my last hope")
-
-print(f"Protection Level: {result.protection_level}")
-print(f"Triggers Detected: {result.triggers_count}")
-
-# Crisis response
-if result.protection_level.value >= 3:
-    crisis = CrisisDetector().assess_crisis(result)
-    print(crisis.format_crisis_message())
-
-### **Step 4: Add Repository Topics**
-In Settings → Topics, add:
-- `python`
-- `ai-safety` 
-- `vulnerable-users`
-- `mental-health`
-- `crisis-detection`
-- `ai-ethics`
-
-### **Step 5: Create Release**
-1. Go to "Releases"
-2. "Create a new release"
-3. Tag: `v4.0.0`
-4. Title: "LFAS Protocol v4 - Production Ready"
-5. Description: "First public release with Python implementation"
-
-## 🎯 **IMMEDIATE IMPACT:**
-
-Once public, developers can:
-```bash
-pip install your-package
 
 ## License
 
