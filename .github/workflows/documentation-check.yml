@@ -2,6 +2,9 @@ name: Documentation Disclaimer Check
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   disclaimer-check:
     runs-on: ubuntu-latest

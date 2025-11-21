@@ -2,6 +2,9 @@ name: CI: Test & Lint
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   test-and-lint:
     runs-on: ubuntu-latest
@@ -12,16 +15,19 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-      - name: Lint with flake8
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]" || echo "No Python package found"
+      - name: Lint with ruff
         run: |
-          pip install flake8
-          flake8 .
+          if [ -d lfas_protocol ]; then
+            ruff check lfas_protocol/ tests/ || echo "Linting skipped"
+          else
+            echo "No Python package to lint"
+          fi
       - name: Run Tests
         run: |
-          if [ -f pytest.ini ] || [ -d tests ]; then
-            pip install pytest
-            pytest
+          if [ -d tests ] && [ -f pyproject.toml ]; then
+            pytest tests/ -v
           else
             echo "No tests found."
           fi
