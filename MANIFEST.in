@@ -1,0 +1,17 @@
+include README.md
+include PYTHON_LIBRARY.md
+include LICENSE
+include CONTRIBUTING.md
+include pyproject.toml
+
+recursive-include lfas_protocol *.py
+recursive-include tests *.py
+recursive-include examples *.py
+recursive-include protocol *.xml
+
+exclude .gitignore
+exclude .github
+recursive-exclude .github *
+recursive-exclude __pycache__ *
+recursive-exclude *.pyc *
+recursive-exclude .pytest_cache *

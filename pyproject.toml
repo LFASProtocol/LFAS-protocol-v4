@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lfas-protocol"
+version = "0.1.0"
+description = "LFAS Protocol v4 - Python Reference Implementation for AI Safety"
+readme = "README.md"
+license = {text = "LFAS Protocol v4 License"}
+authors = [
+    {name = "Mehmet", email = "lfasprotocol@outlook.com"}
+]
+keywords = ["ai-safety", "vulnerability-detection", "crisis-detection", "ai-ethics", "responsible-ai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/LFASProtocol/LFAS-protocol-v4"
+Documentation = "https://github.com/LFASProtocol/LFAS-protocol-v4/blob/main/README.md"
+Repository = "https://github.com/LFASProtocol/LFAS-protocol-v4"
+Issues = "https://github.com/LFASProtocol/LFAS-protocol-v4/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lfas_protocol*"]
+exclude = ["tests*", "examples*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "-ra",
+]
+
+[tool.coverage.run]
+source = ["lfas_protocol"]
+omit = ["tests/*", "examples/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
