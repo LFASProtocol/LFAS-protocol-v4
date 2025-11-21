@@ -176,8 +176,9 @@ When deciding whether a modification is acceptable, ask:
 ### 4.1 Who Approves Delegated Changes?
 
 **For non-delegable components:**
-- No modifications are permitted without explicit approval from the LFAS Protocol creator (Mehmet).
+- No modifications are permitted without explicit approval from the LFAS Protocol creator.
 - Commercial licensees must adhere to the specification as-is.
+- For governance inquiries, contact: lfasprotocol@outlook.com
 
 **For delegable components:**
 - Integrators have full autonomy within the documented constraints.
