@@ -102,14 +102,13 @@ class VulnerabilityDetector:
             "isolation": self.isolation_indicators,
         }
     
-    def detect(self, user_input: str, conversation_history: List[str] = None) -> DetectionResult:
+    def detect(self, user_input: str) -> DetectionResult:
         """
         Detect vulnerability indicators in user input.
         
         Args:
             user_input: The current user message
-            conversation_history: Optional list of previous messages
-            
+        
         Returns:
             DetectionResult with protection level and triggered indicators
         """
