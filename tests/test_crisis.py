@@ -10,6 +10,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from lfas import CrisisDetector, VulnerabilityDetector, ProtectionLevel
+from tests.test_utils import get_spec_path
 
 
 class TestCrisisDetector(unittest.TestCase):
@@ -18,14 +19,7 @@ class TestCrisisDetector(unittest.TestCase):
     def setUp(self):
         """Set up test fixtures"""
         self.crisis_detector = CrisisDetector()
-        try:
-            self.vuln_detector = VulnerabilityDetector(
-                spec_path="protocol/lfas-v4-specification.xml"
-            )
-        except FileNotFoundError:
-            self.vuln_detector = VulnerabilityDetector(
-                spec_path="../protocol/lfas-v4-specification.xml"
-            )
+        self.vuln_detector = VulnerabilityDetector(spec_path=get_spec_path())
     
     def test_no_crisis_for_standard_input(self):
         """Test that non-crisis input doesn't trigger crisis response"""

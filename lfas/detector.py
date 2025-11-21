@@ -19,9 +19,11 @@ class VulnerabilityDetector:
             cat_name = category.tag
             category_indicators = []
             for ind in category.findall("indicator"):
-                # Split comma-separated phrases and strip whitespace
-                phrases = [phrase.strip().lower() for phrase in ind.text.split(',')]
-                category_indicators.extend(phrases)
+                # Check for None text content
+                if ind.text:
+                    # Split comma-separated phrases and strip whitespace
+                    phrases = [phrase.strip().lower() for phrase in ind.text.split(',')]
+                    category_indicators.extend(phrases)
             indicators[cat_name] = category_indicators
         
         return indicators

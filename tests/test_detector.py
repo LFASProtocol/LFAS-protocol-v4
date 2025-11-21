@@ -10,6 +10,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from lfas import VulnerabilityDetector, ProtectionLevel
+from tests.test_utils import get_spec_path
 
 
 class TestVulnerabilityDetector(unittest.TestCase):
@@ -17,17 +18,7 @@ class TestVulnerabilityDetector(unittest.TestCase):
     
     def setUp(self):
         """Set up test fixtures"""
-        # Note: This will fail if the XML spec is not in the expected location
-        # For testing, we may need to adjust the path
-        try:
-            self.detector = VulnerabilityDetector(
-                spec_path="protocol/lfas-v4-specification.xml"
-            )
-        except FileNotFoundError:
-            # Fallback for different test environments
-            self.detector = VulnerabilityDetector(
-                spec_path="../protocol/lfas-v4-specification.xml"
-            )
+        self.detector = VulnerabilityDetector(spec_path=get_spec_path())
     
     def test_standard_protection_no_triggers(self):
         """Test that normal input gets Standard protection"""
@@ -125,14 +116,7 @@ class TestProtectionLevelEscalation(unittest.TestCase):
     
     def setUp(self):
         """Set up test fixtures"""
-        try:
-            self.detector = VulnerabilityDetector(
-                spec_path="protocol/lfas-v4-specification.xml"
-            )
-        except FileNotFoundError:
-            self.detector = VulnerabilityDetector(
-                spec_path="../protocol/lfas-v4-specification.xml"
-            )
+        self.detector = VulnerabilityDetector(spec_path=get_spec_path())
     
     def test_escalation_from_standard_to_enhanced(self):
         """Test escalation from Standard to Enhanced protection"""
