@@ -6,7 +6,7 @@ This script shows how to use the VulnerabilityDetector to analyze
 user input and determine appropriate protection levels.
 """
 
-from lfas import VulnerabilityDetector, ProtectionLevel
+from lfas import ProtectionLevel, VulnerabilityDetector
 
 
 def main() -> None:
@@ -70,14 +70,16 @@ def main() -> None:
         result = detector.detect(scenario["input"])
 
         # Display results
-        print(f"Protection Level: {result.protection_level.name} (Level {result.protection_level.value})")
+        level_name = result.protection_level.name
+        level_value = result.protection_level.value
+        print(f"Protection Level: {level_name} (Level {level_value})")
         print(f"Trigger Count: {result.trigger_count}")
 
         if result.triggered_categories:
             print(f"Categories Detected: {', '.join(sorted(result.triggered_categories))}")
 
         if result.triggered_indicators:
-            print(f"Specific Indicators:")
+            print("Specific Indicators:")
             for indicator in sorted(set(result.triggered_indicators)):
                 print(f"  • {indicator}")
 

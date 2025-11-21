@@ -2,7 +2,6 @@
 Tests for the SpecificationLoader module.
 """
 
-
 from lfas.spec_loader import SpecificationLoader
 
 

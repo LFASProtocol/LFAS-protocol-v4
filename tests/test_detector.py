@@ -2,7 +2,6 @@
 Tests for the VulnerabilityDetector module.
 """
 
-
 from lfas.detector import ProtectionLevel, VulnerabilityDetector
 
 

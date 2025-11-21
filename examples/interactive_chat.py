@@ -59,9 +59,7 @@ class SafeChat:
             print("  • National Suicide Prevention Lifeline: 988")
             print("  • Crisis Text Line: Text HOME to 741741")
             print("  • International: findahelpline.com")
-            print(
-                "\nRecommendation: Encourage seeking immediate professional help."
-            )
+            print("\nRecommendation: Encourage seeking immediate professional help.")
         elif result.protection_level == ProtectionLevel.ENHANCED:
             print("\n⚠️  ENHANCED PROTECTION - Apply additional safeguards")
             print("  • Include reality checks and disclaimers")
@@ -98,9 +96,7 @@ class SafeChat:
         print("\n" + "=" * 70)
         print("Demo conversation complete!")
         print("=" * 70)
-        print(
-            f"\nFinal Protection Level: {self.current_protection_level.name}"
-        )
+        print(f"\nFinal Protection Level: {self.current_protection_level.name}")
         print(f"Conversation History Length: {len(self.conversation_history)} messages")
 
 
