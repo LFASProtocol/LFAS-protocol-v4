@@ -1,0 +1,26 @@
+name: Documentation Disclaimer Check
+
+on: [push, pull_request]
+
+jobs:
+  disclaimer-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for safety disclaimer in docs
+        run: |
+          REQUIRED="Not a medical device"
+          FILES="README.md implementation-guide.md documentation/*.md"
+          MISSING=""
+          for f in $FILES ; do
+            if [ -f "$f" ]; then
+              if ! grep -q "$REQUIRED" "$f" ; then
+                echo "::error file=$f::Missing required safety disclaimer: '$REQUIRED'"
+                MISSING=1
+              fi
+            fi
+          done
+          if [ "$MISSING" = "1" ]; then
+            exit 1
+          fi
+          echo "All documentation files include the required safety disclaimer."
