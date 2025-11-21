@@ -74,7 +74,7 @@ class CrisisDetector:
         return SafetyResponse(
             original_detection=detection,
             response_text="\n".join(response_parts),
-            applied_safeguards=["VR-24: Crisis Detection & Response", "VR-25: Amplification Prevention"],
+            applied_safeguards=["VR-24: Crisis Detection and Response", "VR-25: Amplification Prevention"],
             resources_provided=self.CRISIS_RESOURCES,
             requires_human_escalation=True
         )
