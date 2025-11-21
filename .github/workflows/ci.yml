@@ -1,0 +1,59 @@
+name: CI - Test & Lint
+
+on: 
+  push:
+    branches: [ main, master, develop, copilot/** ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  validate-documentation:
+    name: Validate Documentation Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Validate XML files
+        run: |
+          echo "Checking XML files for well-formedness..."
+          for file in $(find . -name "*.xml" -type f); do
+            echo "Validating $file"
+            xmllint --noout "$file" || exit 1
+          done
+          echo "All XML files are valid!"
+      
+      - name: Check Markdown files
+        run: |
+          echo "Checking for Markdown files..."
+          MD_COUNT=$(find . -name "*.md" -type f | wc -l)
+          echo "Found $MD_COUNT Markdown files"
+          if [ $MD_COUNT -eq 0 ]; then
+            echo "Warning: No Markdown files found"
+          fi
+      
+      - name: Verify repository structure
+        run: |
+          echo "Verifying required directories exist..."
+          REQUIRED_DIRS="protocol research demonstrations documentation"
+          for dir in $REQUIRED_DIRS; do
+            if [ ! -d "$dir" ]; then
+              echo "Error: Required directory '$dir' not found"
+              exit 1
+            fi
+            echo "✓ Directory '$dir' exists"
+          done
+          echo "Repository structure validation complete!"
+      
+      - name: Check required files
+        run: |
+          echo "Checking for required files..."
+          REQUIRED_FILES="README.md LICENSE CONTRIBUTING.md implementation-guide.md"
+          for file in $REQUIRED_FILES; do
+            if [ ! -f "$file" ]; then
+              echo "Error: Required file '$file' not found"
+              exit 1
+            fi
+            echo "✓ File '$file' exists"
+          done
+          echo "All required files present!"
