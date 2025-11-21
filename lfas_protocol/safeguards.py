@@ -54,10 +54,6 @@ class CrisisDetectionSafeguard:
         ),
     ]
     
-    def __init__(self):
-        """Initialize the crisis detection safeguard."""
-        pass
-    
     def should_activate(self, detection_result: DetectionResult) -> bool:
         """
         Determine if crisis safeguard should activate.
