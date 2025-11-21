@@ -75,15 +75,13 @@ class CrisisDetectionSafeguard:
         
         return False
     
-    def generate_response(self, detection_result: DetectionResult, 
-                         original_response: Optional[str] = None) -> str:
+    def generate_response(self, detection_result: DetectionResult) -> str:
         """
         Generate crisis-appropriate response.
         
         Args:
             detection_result: Result from vulnerability detection
-            original_response: Optional original AI response to modify
-            
+        
         Returns:
             Crisis-appropriate response text
         """
