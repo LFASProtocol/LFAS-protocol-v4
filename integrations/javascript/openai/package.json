@@ -1,0 +1,21 @@
+{
+  "name": "lfas-openai-integration",
+  "version": "4.0.0",
+  "description": "LFAS Protocol v4 integration for OpenAI API",
+  "main": "lfas-openai.js",
+  "scripts": {
+    "example": "node example-usage.js"
+  },
+  "keywords": [
+    "lfas",
+    "openai",
+    "safety",
+    "ai-safety",
+    "vulnerability-detection"
+  ],
+  "author": "LFAS Protocol",
+  "license": "SEE LICENSE IN ../../../LICENSE",
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}

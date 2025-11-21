@@ -1,0 +1,4 @@
+# LFAS Protocol v4 - Python Integrations
+# Requirements for Anthropic integration
+
+anthropic>=0.18.0

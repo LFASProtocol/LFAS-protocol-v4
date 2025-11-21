@@ -1,0 +1,4 @@
+# LFAS Protocol v4 - Python Integrations
+# Requirements for OpenAI integration
+
+openai>=1.0.0
