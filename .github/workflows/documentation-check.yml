@@ -1,26 +1,41 @@
 name: Documentation Disclaimer Check
 
-on: [push, pull_request]
+on: 
+  push:
+    branches: [ main, master, develop, copilot/** ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+permissions:
+  contents: read
 
 jobs:
   disclaimer-check:
+    name: Verify Safety Disclaimers
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       - name: Check for safety disclaimer in docs
         run: |
           REQUIRED="Not a medical device"
           FILES="README.md implementation-guide.md documentation/*.md"
           MISSING=""
+          echo "Checking documentation files for required safety disclaimer..."
           for f in $FILES ; do
             if [ -f "$f" ]; then
+              echo "Checking $f..."
               if ! grep -q "$REQUIRED" "$f" ; then
                 echo "::error file=$f::Missing required safety disclaimer: '$REQUIRED'"
                 MISSING=1
+              else
+                echo "✓ $f contains required disclaimer"
               fi
             fi
           done
           if [ "$MISSING" = "1" ]; then
+            echo "Error: Some files are missing the required safety disclaimer"
             exit 1
           fi
           echo "All documentation files include the required safety disclaimer."

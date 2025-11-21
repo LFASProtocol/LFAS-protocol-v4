@@ -1,0 +1,28 @@
+name: License Compliance Check
+
+on: 
+  push:
+    branches: [ main, master, develop, copilot/** ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+permissions:
+  contents: read
+
+jobs:
+  license-scan:
+    name: Verify License Compliance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Scan for forbidden license text
+        run: |
+          echo "Scanning for forbidden license text..."
+          if grep -F -r --exclude-dir=.git -e "MIT License" -e "Permission is hereby granted" . ; then
+            echo "::error file=LICENSE::Forbidden license text found! Only LFAS Protocol v4 License is allowed."
+            exit 1
+          else
+            echo "✓ License check passed. Only LFAS Protocol v4 License detected."
+          fi

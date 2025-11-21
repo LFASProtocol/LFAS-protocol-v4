@@ -85,12 +85,61 @@ lfas-protocol-v4/
 
 ---
 
+## Installation
+
+### From Source (Current):
+```bash
+git clone https://github.com/LFASProtocol/LFAS-protocol-v4.git
+cd LFAS-protocol-v4
+pip install -e .
+```
+
+### From PyPI (Coming Soon):
+```bash
+pip install lfas-protocol
+```
+
+---
+
+## Quick Start
+
+```python
+from lfas_protocol import VulnerabilityDetector, ProtectionLevel
+
+# Initialize the vulnerability detector
+detector = VulnerabilityDetector()
+
+# Analyze user message
+result = detector.analyze("I lost my job and have $100 left. Need money fast.")
+
+# Check protection level
+print(f"Protection Level: {result['protection_level'].name}")
+print(f"Triggers: {result['triggers']}")
+
+if result['protection_level'] == ProtectionLevel.CRISIS:
+    print("⚠️ CRISIS - Apply VR-24 Crisis Detection safeguards")
+elif result['protection_level'] == ProtectionLevel.ENHANCED:
+    print("⚡ ENHANCED - Apply relevant safeguards")
+```
+
+**Example Output:**
+```
+Protection Level: ENHANCED
+Triggers: ['financial_desperation']
+⚡ ENHANCED - Apply relevant safeguards
+```
+
+See `examples/basic_usage.py` for more examples.
+
+---
+
 ## Getting Started
 
-1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
-2. See the evidence in `/research/` folder
-3. View demonstrations of LFAS in action
-4. Implement the safeguards in your AI systems
+1. **Install the library** (see Installation above)
+2. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
+3. See the evidence in `/research/` folder
+4. View working code in `/examples/` directory
+5. Read the implementation guide in `implementation-guide.md`
 
 ---
 
