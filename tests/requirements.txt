@@ -5,7 +5,7 @@
 # unittest is part of Python standard library
 
 # Optional: Enhanced test runner
-pytest>=7.4.0
+pytest>=7.4.0,<8.0.0
 
 # Optional: Code coverage
 pytest-cov>=4.1.0
