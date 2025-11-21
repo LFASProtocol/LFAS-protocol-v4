@@ -75,7 +75,7 @@ class VulnerabilityDetector:
                 if pattern in matched_patterns:
                     continue
 
-                if re.search(pattern, text_lower, re.IGNORECASE):
+                if re.search(pattern, text_lower):
                     indicator = VulnerabilityIndicator(
                         category=category, pattern=pattern.replace(r"\b", "").replace("\\", "")
                     )
