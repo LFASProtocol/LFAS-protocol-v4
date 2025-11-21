@@ -1,11 +1,36 @@
-Copyright (c) 2025 Mehmet Bagbozan
+LFAS Protocol v4 License
+Copyright (c) 2025 Mehmet Bagbozan (LFASProtocol). All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+This software and its accompanying documentation ("the Software") are made available under the terms of the LFAS Protocol v4 License. By accessing, using, copying, or modifying the Software, you agree to the following terms:
 
-1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+1. License Grant & Non-Commercial Use
+Permission is hereby granted, free of charge, to any person obtaining a copy of this Software to use, copy, modify, and distribute the Software for strictly Non-Commercial purposes.
 
-2. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+For the purposes of this license, "Non-Commercial" is defined as use that does not generate direct or indirect revenue, is not intended for commercial advantage, and is not part of the business operations of a commercial entity.
 
----
+Permitted Uses: Personal use, academic research, public education, and registered non-profit charitable organizations (501(c)(3) or equivalent).
 
-This license applies to all code and related materials released under this repository. Please read carefully before using the Software.
+Restricted Uses: Use by government entities, for-profit healthcare providers, and private corporations is considered Commercial unless explicitly exempted in writing.
+
+2. Commercial Use Restriction
+Commercial use of the Software is strictly prohibited without a separate commercial license.
+
+Prohibited activities include:
+- Integrating the Software into a product or service sold to third parties.
+- Using the Software for internal business operations, production environments, or commercial workflows.
+- Using the Software to provide a paid service (SaaS).
+
+To obtain a Commercial License, please contact the Copyright Holder at: lfasprotocol@outlook.com
+
+3. Attribution Requirements
+Any public use, distribution, or visible deployment of the Software (modified or unmodified) MUST include the following attribution notice in a prominent location (e.g., software headers, user interface "About" page, or documentation):
+
+"LFAS Protocol v4 by Mehmet Bagbozan (LFASProtocol) - [Link to Repository]"
+
+4. Modifications & Contributions
+Documentation: Any modifications, improvements, or derivative works created from this Software must be documented. Major changes must be clearly stated in the source code or accompanying documentation.
+
+License Inheritance: Any public distribution of modified versions or derivative works must be released under this same License (LFAS Protocol v4), unless a separate agreement is negotiated with the Copyright Holder.
+
+5. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
