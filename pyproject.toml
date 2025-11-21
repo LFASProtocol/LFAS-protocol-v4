@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lfas-protocol"
+version = "4.0.0"
+description = "Logical Framework for AI Safety - Protecting Vulnerable Users"
+authors = [
+    {name = "Mehmet", email = "lfasprotocol@outlook.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "LFAS Protocol v4 License"}
+keywords = ["ai-safety", "vulnerability-detection", "ai-ethics", "responsible-ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "lxml>=4.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/LFASProtocol/LFAS-protocol-v4"
+Documentation = "https://github.com/LFASProtocol/LFAS-protocol-v4/blob/main/implementation-guide.md"
+Repository = "https://github.com/LFASProtocol/LFAS-protocol-v4"
+"Bug Tracker" = "https://github.com/LFASProtocol/LFAS-protocol-v4/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src/lfas_protocol --cov-report=term-missing"
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"

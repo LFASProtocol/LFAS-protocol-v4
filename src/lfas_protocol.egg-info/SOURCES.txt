@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/lfas_protocol/__init__.py
+src/lfas_protocol/detector.py
+src/lfas_protocol/parser.py
+src/lfas_protocol/safeguards.py
+src/lfas_protocol.egg-info/PKG-INFO
+src/lfas_protocol.egg-info/SOURCES.txt
+src/lfas_protocol.egg-info/dependency_links.txt
+src/lfas_protocol.egg-info/requires.txt
+src/lfas_protocol.egg-info/top_level.txt
+tests/test_detector.py
+tests/test_scenarios.py
