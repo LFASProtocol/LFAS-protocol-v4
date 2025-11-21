@@ -125,6 +125,19 @@ Anthropic Claude: Frame the LFAS rules as part of the constitutional principles 
 
 Open-Source Models: Integrate the protocol directly into the model's inference pipeline or as a separate processing module.
 
-text
+---
 
-I hope this detailed template helps you move forward with your project. If you have specific sections you'd like to refine or need help with the other missing files, please let me know.
+## Important Safety Disclaimer
+
+**Not a Medical Device:** The LFAS Protocol is an algorithmic framework designed to improve AI logic. It is **not** a medical device, a substitute for professional mental health care, or an emergency response system.
+
+**No Guarantee of Prevention:** While LFAS v4 includes safeguards (VR-20 through VR-25) designed to mitigate risk, the Creator **cannot and does not guarantee** that the Protocol will prevent all instances of self-harm, financial loss, or delusion.
+
+**Integrator Responsibility:** Organizations implementing LFAS (the "Integrators") retain full legal and ethical responsibility for the actions of their AI systems. The Creator of LFAS assumes no liability for damages arising from the failure of the Protocol to detect or prevent crisis events.
+
+---
+
+**Document Version**: 1.0  
+**Last Updated**: November 2025  
+**Contact**: lfasprotocol@outlook.com  
+**License**: LFAS Protocol v4 License

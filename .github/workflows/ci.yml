@@ -1,0 +1,58 @@
+name: CI: Documentation & Specification Validation
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate XML Specifications
+        run: |
+          # Install xmllint for XML validation
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
+          
+          # Validate all XML files are well-formed
+          for xml_file in protocol/*.xml; do
+            if [ -f "$xml_file" ]; then
+              echo "Validating $xml_file..."
+              xmllint --noout "$xml_file" && echo "✓ $xml_file is valid" || exit 1
+            fi
+          done
+      
+      - name: Check Markdown Files
+        run: |
+          # Check all markdown files exist and are readable
+          find . -name "*.md" -type f | while read md_file; do
+            echo "Checking $md_file..."
+            [ -r "$md_file" ] || exit 1
+          done
+          echo "✓ All markdown files are readable"
+      
+      - name: Verify Required Files
+        run: |
+          # Ensure all required files exist
+          required_files=(
+            "README.md"
+            "LICENSE"
+            "CONTRIBUTING.md"
+            "CHANGELOG.md"
+            "protocol/lfas-v4-specification.xml"
+            "documentation/test-scenarios.md"
+            "documentation/testing-guide.md"
+          )
+          
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "✗ Required file missing: $file"
+              exit 1
+            else
+              echo "✓ Found: $file"
+            fi
+          done
+
