@@ -125,6 +125,21 @@ Please reach out to these resources or a trusted person in your life."""
             return preamble + "\n" + response
         return response
     
+    def get_crisis_response(self, detected_categories: Set[str]) -> str:
+        """
+        Get a crisis response message based on detected categories.
+        
+        This is used when the AI response should be completely replaced
+        with crisis intervention messaging.
+        
+        Args:
+            detected_categories: Set of vulnerability categories
+            
+        Returns:
+            Crisis intervention response
+        """
+        return self._apply_crisis_safeguards("", detected_categories)
+    
     def _apply_crisis_safeguards(
         self, response: str, detected_categories: Set[str]
     ) -> str:

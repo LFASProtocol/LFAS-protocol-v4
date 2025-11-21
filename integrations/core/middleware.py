@@ -60,8 +60,8 @@ class LFASMiddleware:
         # For crisis situations, we may want to skip the AI response entirely
         if protection_level == ProtectionLevel.CRISIS and 'crisis_language' in detected_categories:
             # Skip normal AI generation, provide crisis response
-            safe_response = self.safeguard_engine._apply_crisis_safeguards(
-                "", detected_categories
+            safe_response = self.safeguard_engine.get_crisis_response(
+                detected_categories
             )
         else:
             # Phase 4: ACT - Generate and apply safeguards to response
