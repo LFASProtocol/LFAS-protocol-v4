@@ -4,7 +4,7 @@ Dynamic XML specification parser for vulnerability detection indicators
 """
 
 import xml.etree.ElementTree as ET
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from pathlib import Path
 
 
@@ -32,7 +32,13 @@ class SpecificationLoader:
         self._load_spec()
     
     def _load_spec(self):
-        """Load and parse the XML specification"""
+        """
+        Load and parse the XML specification.
+        
+        Security Note: This uses standard ElementTree parsing. For production
+        environments with untrusted XML sources, consider using defusedxml library
+        to prevent XML External Entity (XXE) attacks.
+        """
         try:
             self._tree = ET.parse(self.spec_path)
             self._root = self._tree.getroot()
@@ -95,7 +101,8 @@ class SpecificationLoader:
         
         for rule_elem in escalation_rules.findall("rule"):
             if rule_elem.text:
-                rules[rule_elem.text.strip()] = rule_elem.text.strip()
+                rule_text = rule_elem.text.strip()
+                rules[rule_text] = rule_text
         
         return rules
     
@@ -185,7 +192,7 @@ class SpecificationLoader:
         
         return resources
     
-    def get_verification_requirements(self) -> Dict[str, Dict[str, any]]:
+    def get_verification_requirements(self) -> Dict[str, Dict[str, Any]]:
         """
         Extract verification requirements (VR-20 through VR-25) from specification.
         

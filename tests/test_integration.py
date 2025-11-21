@@ -154,6 +154,11 @@ class TestIntegration:
         detector = VulnerabilityDetector()
         crisis_detector = CrisisDetector(spec_loader=loader)
         
-        # All should use the same specification
-        assert detector.indicators == loader.get_detection_indicators()
+        # All should use the same specification (detector lowercases indicators for performance)
+        raw_indicators = loader.get_detection_indicators()
+        lowercased_indicators = {
+            category: [ind.lower() for ind in indicators]
+            for category, indicators in raw_indicators.items()
+        }
+        assert detector.indicators == lowercased_indicators
         assert crisis_detector.crisis_resources == loader.get_crisis_resources()

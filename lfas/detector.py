@@ -17,7 +17,12 @@ class VulnerabilityDetector:
             spec_path: Optional path to XML specification. If None, uses default.
         """
         self.spec_loader = SpecificationLoader(spec_path)
-        self.indicators = self.spec_loader.get_detection_indicators()
+        raw_indicators = self.spec_loader.get_detection_indicators()
+        # Pre-process indicators to lowercase for efficient matching
+        self.indicators = {
+            category: [ind.lower() for ind in indicators]
+            for category, indicators in raw_indicators.items()
+        }
         self.conversation_history: List[str] = []
     
     def detect(self, user_input: str, maintain_history: bool = True) -> DetectionResult:
@@ -41,7 +46,7 @@ class VulnerabilityDetector:
         # Check each category and its indicators
         for category, indicators in self.indicators.items():
             for indicator in indicators:
-                if indicator.lower() in input_lower:
+                if indicator in input_lower:
                     detected_categories.add(category)
                     total_triggers += 1
         
@@ -69,4 +74,9 @@ class VulnerabilityDetector:
     def reload_specification(self):
         """Reload the XML specification (useful for dynamic updates)"""
         self.spec_loader.reload()
-        self.indicators = self.spec_loader.get_detection_indicators()
+        raw_indicators = self.spec_loader.get_detection_indicators()
+        # Re-process indicators to lowercase
+        self.indicators = {
+            category: [ind.lower() for ind in indicators]
+            for category, indicators in raw_indicators.items()
+        }
