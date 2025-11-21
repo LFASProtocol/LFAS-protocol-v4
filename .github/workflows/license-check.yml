@@ -1,0 +1,27 @@
+name: License Compliance Check
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  license-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan for forbidden license text
+        run: |
+          if grep -F -r \
+            --exclude-dir=.git \
+            --exclude=LICENSE \
+            --exclude-dir=.github \
+            -e "MIT License" \
+            -e "Apache License" \
+            -e "GNU General Public" \
+            . ; then
+            echo "::error::Forbidden license text found! Only LFAS Protocol v4 License is allowed in code/documentation."
+            exit 1
+          else
+            echo "License check passed. No conflicting licenses detected."
+          fi

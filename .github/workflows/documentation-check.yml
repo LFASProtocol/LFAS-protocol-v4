@@ -1,0 +1,30 @@
+name: Documentation Disclaimer Check
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  disclaimer-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for safety disclaimer in main documentation
+        run: |
+          REQUIRED="not a medical device"
+          # Check README.md (required)
+          if ! grep -iq "$REQUIRED" README.md ; then
+            echo "::error file=README.md::Missing required safety disclaimer in README.md"
+            exit 1
+          fi
+          echo "README.md includes the required safety disclaimer."
+          
+          # Check other documentation files (warnings only)
+          for f in implementation-guide.md documentation/*.md ; do
+            if [ -f "$f" ]; then
+              if ! grep -iq "$REQUIRED" "$f" ; then
+                echo "::warning file=$f::Consider adding safety disclaimer to $f"
+              fi
+            fi
+          done
