@@ -189,8 +189,9 @@ class LFASEngine:
         """VR-20: Unfounded Optimism Prevention"""
         # Filter overly optimistic language
         forbidden_phrases = [
-            "guaranteed success", "easy money", "can't fail",
-            "definitely will work", "overnight success", "sure thing"
+            "guaranteed success", "guaranteed money", "easy money", "can't fail",
+            "definitely will work", "overnight success", "sure thing",
+            "risk-free", "can't lose", "100% success"
         ]
         
         for phrase in forbidden_phrases:

@@ -184,11 +184,15 @@ class LFASEngine {
     // VR-20: Unfounded Optimism Prevention
     const forbiddenPhrases = [
       /guaranteed success/gi,
+      /guaranteed money/gi,
       /easy money/gi,
       /can't fail/gi,
       /definitely will work/gi,
       /overnight success/gi,
-      /sure thing/gi
+      /sure thing/gi,
+      /risk-free/gi,
+      /can't lose/gi,
+      /100% success/gi
     ];
     
     let filtered = response;
