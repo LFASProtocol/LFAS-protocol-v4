@@ -66,12 +66,54 @@ The LFAS Protocol operates on a simple, sequential framework comprising **five n
 ---
 
 ## Repository Structure
+
+```
 lfas-protocol-v4/
-├── research/       # Evidence base (4 independent studies + validation)
-├── protocol/       # Complete LFAS specifications
-├── demonstrations/ # Working examples
-├── documentation/  # White paper & implementation guides
-└── assets/         # Media files
+├── src/lfas/         # Python reference implementation
+├── tests/            # Test suite (41 tests, 95% coverage)
+├── examples/         # Working code examples
+├── research/         # Evidence base (4 independent studies + validation)
+├── protocol/         # Complete LFAS specifications (XML)
+├── demonstrations/   # Working examples
+└── documentation/    # White paper & implementation guides
+```
+
+---
+
+## 🚀 Quick Start - Python Library
+
+**Install the library:**
+
+```bash
+# Clone and install
+git clone https://github.com/LFASProtocol/LFAS-protocol-v4.git
+cd LFAS-protocol-v4
+pip install -e .
+```
+
+**Use the vulnerability detector:**
+
+```python
+from lfas import VulnerabilityDetector, CrisisDetector
+
+# Detect user vulnerability
+detector = VulnerabilityDetector()
+result = detector.detect("I lost my job and this is my last hope.")
+
+# Check protection level
+if result.protection_level.value >= 3:
+    # Crisis detected - apply VR-24 safeguard
+    crisis_detector = CrisisDetector()
+    crisis_response = crisis_detector.assess_crisis(result)
+    print(crisis_detector.format_crisis_message(crisis_response))
+```
+
+**See more examples:**
+- `examples/basic_detection.py` - Basic vulnerability detection
+- `examples/crisis_detection.py` - VR-24 crisis safeguard demo
+- `examples/interactive_chat.py` - Conversation history tracking
+
+📖 **Full documentation:** [PYTHON_README.md](PYTHON_README.md)
 
 ---
 
@@ -87,6 +129,12 @@ lfas-protocol-v4/
 
 ## Getting Started
 
+**For Developers (Use the Python Library):**
+1. Install the Python library: `pip install -e .`
+2. Run the examples in `/examples/`
+3. Integrate into your AI application
+
+**For Researchers/Standards Bodies:**
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
 2. See the evidence in `/research/` folder
 3. View demonstrations of LFAS in action
