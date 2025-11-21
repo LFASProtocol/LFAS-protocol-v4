@@ -7,6 +7,8 @@ This guide provides a step-by-step explanation for developers and AI system inte
 ### 1.1. Scope
 This document covers the integration of the core LFAS safeguards into an AI system's response generation pipeline. It assumes familiarity with the full protocol specification in `lfas-v4-specification.xml`.
 
+**Before implementing:** Review `/documentation/delegation-guidelines.md` to understand which aspects of the protocol are non-negotiable and which can be customized for your platform.
+
 ### 1.2. Key Concepts
 *   **The Five-Stage Loop:** The core of the protocol is the non-negotiable `LISTEN → REFLECT → WAIT → ACT → ACKNOWLEDGE` sequence.
 *   **Verification Requirements (VRs):** The specific rules (VR-20 to VR-25) that enforce safety.

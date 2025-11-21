@@ -70,7 +70,7 @@ lfas-protocol-v4/
 ├── research/       # Evidence base (4 independent studies + validation)
 ├── protocol/       # Complete LFAS specifications
 ├── demonstrations/ # Working examples
-├── documentation/  # White paper & implementation guides
+├── documentation/  # White paper, implementation guides, and delegation guidelines
 └── assets/         # Media files
 
 ---
@@ -90,7 +90,8 @@ lfas-protocol-v4/
 1. Review the protocol specification in `/protocol/lfas-v4-specification.xml`
 2. See the evidence in `/research/` folder
 3. View demonstrations of LFAS in action
-4. Implement the safeguards in your AI systems
+4. Read the delegation guidelines in `/documentation/delegation-guidelines.md` to understand what can and cannot be customized
+5. Implement the safeguards in your AI systems
 
 ---
 
