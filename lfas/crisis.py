@@ -260,5 +260,8 @@ class CrisisDetector:
             detected_indicators=[],
             primary_resources=[],
             recommended_actions=[],
-            user_message="No crisis detected. Protection level does not require crisis intervention.",
+            user_message=(
+                "No crisis detected. "
+                "Protection level does not require crisis intervention."
+            ),
         )

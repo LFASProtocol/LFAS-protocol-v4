@@ -159,7 +159,10 @@ class SpecificationLoader:
                 {
                     "name": "211 Community Resources",
                     "contact": "Call or text 211",
-                    "description": "Connect to local resources for food, housing, and financial assistance",
+                    "description": (
+                        "Connect to local resources for food, housing, "
+                        "and financial assistance"
+                    ),
                     "available_247": True,
                 },
             ],
