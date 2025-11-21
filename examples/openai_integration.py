@@ -19,7 +19,7 @@ class SafeAIChat:
         """Initialize the safe AI chat wrapper."""
         self.detector = VulnerabilityDetector()
         self.crisis_safeguard = CrisisDetectionSafeguard()
-        self.conversation_history = []
+    
     
     def generate_safe_response(self, user_message):
         """
