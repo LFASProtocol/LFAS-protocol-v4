@@ -81,13 +81,12 @@ class VulnerabilityDetector:
             ],
         }
 
-    def analyze(self, message: str, conversation_history: List[str] = None) -> Dict:
+    def analyze(self, message: str) -> Dict:
         """
         Analyze user message for vulnerability indicators.
 
         Args:
             message: Current user message
-            conversation_history: Previous messages in conversation (optional)
 
         Returns:
             Dictionary with detection results:
@@ -130,12 +129,15 @@ class VulnerabilityDetector:
 
     def _calculate_protection_level(self, trigger_count: int) -> ProtectionLevel:
         """
-        Calculate protection level based on detected triggers.
+        Calculate protection level based on number of vulnerability categories detected.
 
         As per LFAS v4 specification:
-        - 0 triggers: Standard (Level 1)
-        - 1-2 triggers: Enhanced (Level 2)
-        - 3+ triggers: Crisis (Level 3)
+        - 0 categories triggered: Standard (Level 1)
+        - 1-2 categories triggered: Enhanced (Level 2)
+        - 3+ categories triggered: Crisis (Level 3)
+        
+        Note: trigger_count refers to the number of unique category types detected,
+        not the total number of individual phrase matches.
         """
         if trigger_count == 0:
             return ProtectionLevel.STANDARD
